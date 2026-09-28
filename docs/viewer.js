@@ -4,11 +4,27 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { clubSpin, clubState, handPosition } from './motion.js';
 import { Timeline } from './timeline.js';
 
-const doc = await (await fetch('pattern.json')).json();
+// patterns are pre-rendered into patterns/*.json by `python3 -m sim --build`,
+// so this page is a plain static site: ?p=<id> picks one.
+const index = await (await fetch('patterns/index.json')).json();
+const wanted = new URLSearchParams(location.search).get('p');
+const chosen = index.find((e) => e.id === wanted) || index[0];
+const doc = await (await fetch(`patterns/${chosen.id}.json`)).json();
 const jugglers = Object.fromEntries(doc.jugglers.map((j) => [j.id, j]));
 
+const picker = document.getElementById('pattern');
+for (const entry of index) {
+  const option = document.createElement('option');
+  option.value = entry.id;
+  option.textContent =
+    `${entry.name} — ${entry.clubs} clubs, ${entry.jugglers} jugglers`;
+  picker.append(option);
+}
+picker.value = chosen.id;
+picker.onchange = () => { location.search = `?p=${picker.value}`; };
+
 document.getElementById('title').textContent =
-  `${doc.name} — ${doc.report.clubs} clubs, ${doc.jugglers.length} jugglers, period ${doc.period}`;
+  `${chosen.summary}, period ${doc.period}`;
 renderReport();
 
 // ---------------------------------------------------------------- scene setup

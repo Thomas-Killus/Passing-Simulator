@@ -19,7 +19,13 @@ header {
   display: flex; align-items: baseline; gap: 16px;
   padding: 10px 16px; border-bottom: 1px solid var(--line);
 }
-h1 { margin: 0; font-size: 15px; font-weight: 600; letter-spacing: .02em; }
+h1 { margin: 0; font-size: 14px; font-weight: 500; color: var(--dim);
+     letter-spacing: .02em; }
+#pattern {
+  background: #232a35; color: var(--text); border: 1px solid var(--line);
+  border-radius: 6px; padding: 5px 8px; font: inherit; font-weight: 600;
+  max-width: 48vw;
+}
 #report { color: var(--dim); font-size: 12px; }
 #report .bad { color: var(--bad); }
 #report .warn { color: var(--warn); }

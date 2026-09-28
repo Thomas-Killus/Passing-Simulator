@@ -3,12 +3,14 @@
 Write a club passing pattern in a few lines of text, watch it in 3D, and have the
 engine tell you whether it is actually valid.
 
-```
-python3 -m sim patterns/6c-4count.txt
-```
+**[Open the patterns in your browser →](https://thomas-killus.github.io/Passing-Simulator/)**
+No install needed; pick a pattern from the dropdown, drag to orbit.
 
-That simulates the pattern, prints a report, serves the viewer on
-`http://127.0.0.1:8000` and opens a browser tab. Edit the pattern file, rerun.
+```
+python3 -m sim                          # build every pattern, serve, open browser
+python3 -m sim patterns/6c-4count.txt   # simulate one, print a report, open it
+python3 -m sim --build                  # re-render docs/ and exit
+```
 
 No dependencies: Python 3.10+ and a browser. three.js loads from a CDN.
 
@@ -278,13 +280,47 @@ the 15-club star does, has no valid solution at 17 clubs — the engine rejects
 every one. The stagger turns the five simultaneous passes into a wave with
 exactly one club crossing the star per beat.
 
+## Sharing a pattern
+
+Every pattern has its own link. Take the id from the dropdown and put it after
+`?p=`:
+
+```
+https://thomas-killus.github.io/Passing-Simulator/?p=star-17c-all-doubles
+```
+
+Send that to whoever you are passing with — they need nothing installed.
+
+### How the hosting works
+
+The engine is a **build-time** tool. `python3 -m sim --build` runs it over every
+file in `patterns/` and writes `docs/patterns/<id>.json` plus an `index.json` the
+dropdown reads. What gets published is `docs/` — the viewer's five files and one
+JSON per pattern, about 40 KB of code. No Python runs for a visitor, which is why
+this can sit on free static hosting.
+
+GitHub Pages is set to serve `main` / `docs`. The local server serves the very
+same folder, so what you see while working is what visitors get.
+
+### Adding a pattern
+
+```
+vim patterns/my-idea.txt
+python3 -m sim patterns/my-idea.txt   # check it, watch it
+python3 -m sim --build                # re-render docs/
+git add -A && git commit && git push  # live in a minute or so
+```
+
+Committing `docs/patterns/` is deliberate — it keeps the site a pure static
+build with no CI needed. A test fails if you forget to rerun `--build`, so a
+stale site cannot ship.
+
 ## Tests
 
 ```
-python3 -m pytest tests/       # engine, notation, geometry, export, CLI
-node --test tests/js/          # the viewer's motion maths (needs a pattern.json)
+python3 -m pytest tests/       # engine, notation, geometry, export, build, CLI
+node --test tests/js/          # the viewer's flight and spin maths
 ```
 
-The node tests read `/tmp/6c.json` and `/tmp/7a.json`; make them with
-`python3 -m sim patterns/6c-4count.txt --no-serve --json /tmp/6c.json` and the
-same for `patterns/7c-async.txt`.
+The node tests read the built files in `docs/patterns/`, so run
+`python3 -m sim --build` first if you have just changed a pattern.

@@ -2,11 +2,12 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import test from 'node:test';
 
-import { clubState, handPosition } from '../../viewer/motion.js';
+import { clubState, handPosition } from '../../docs/motion.js';
 
+// the same files the site publishes; regenerate with `python3 -m sim --build`
 const docs = {
-  '6c 4-count': JSON.parse(readFileSync('/tmp/6c.json', 'utf8')),
-  '7c async': JSON.parse(readFileSync('/tmp/7a.json', 'utf8')),
+  '6c 4-count': JSON.parse(readFileSync('docs/patterns/6c-4count.json', 'utf8')),
+  '7c async': JSON.parse(readFileSync('docs/patterns/7c-async.json', 'utf8')),
 };
 
 const dist = (a, b) => Math.hypot(a[0] - b[0], a[1] - b[1], a[2] - b[2]);
@@ -69,7 +70,7 @@ for (const [name, doc] of Object.entries(docs)) {
   });
 }
 
-import { clubSpin, bulbDirection } from '../../viewer/motion.js';
+import { clubSpin, bulbDirection } from '../../docs/motion.js';
 
 // A club tumbles handle-first: the handle leads over the top and drops down into
 // the catching hand. So the head (bulb) tips AGAINST the direction of travel —
