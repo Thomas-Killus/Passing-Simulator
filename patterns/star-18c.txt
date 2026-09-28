@@ -1,0 +1,42 @@
+# The star one club denser: 5 jugglers, 18 clubs, three people holding 4.
+#
+# 3.6 clubs each, the other whole-number neighbour of the 3.5 you were after
+# (star-17c.txt is the 3.4 side). Same 5-beat loop shape, but three of the five
+# throws are heffs instead of two:
+#
+#     pass, self, heff, heff, heff
+#
+# Everyone throws that same sequence, each person starting one beat later than
+# the last - but going the OTHER way round the circle than in the 17-club
+# version, so the pass wave travels E -> D -> C -> B -> A.
+#
+# Passing is still across the star: A->C  B->D  C->E  D->A  E->B
+#
+# A, D and E start with 4 clubs; B and C with 3.
+#
+# Harder than 17: more of your own throws are doubles, so there is less time to
+# look up for the incoming pass.
+
+name: 18c star
+beat: 0.32
+
+jugglers:
+  A at 0deg
+  B at 72deg
+  C at 144deg
+  D at 216deg
+  E at 288deg
+
+start:
+  A: R=2 L=2
+  B: R=2 L=1
+  C: R=2 L=1
+  D: R=2 L=2
+  E: R=2 L=2
+
+loop:
+  A: 3pC 3   4   4   4
+  B: 3   4   4   4   3pD
+  C: 4   4   4   3pE 3
+  D: 4   4   3pA 3   4
+  E: 4   3pB 3   4   4

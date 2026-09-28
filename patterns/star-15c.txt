@@ -1,0 +1,30 @@
+# The classic star: 5 jugglers in a circle, everyone passing across to the
+# person two places round, 15 clubs, 4-count. Three clubs each.
+#
+# This is the pattern the 7-club question is about: can the same shape be run at
+# a higher club density? Copy this file, raise the heights, and see what the
+# validator says.
+
+name: 15c star
+beat: 0.35
+
+jugglers:
+  A at 0deg
+  B at 72deg
+  C at 144deg
+  D at 216deg
+  E at 288deg
+
+start:
+  A: R=2 L=1
+  B: R=2 L=1
+  C: R=2 L=1
+  D: R=2 L=1
+  E: R=2 L=1
+
+loop:
+  A: 3pC 3 3 3
+  B: 3pD 3 3 3
+  C: 3pE 3 3 3
+  D: 3pA 3 3 3
+  E: 3pB 3 3 3

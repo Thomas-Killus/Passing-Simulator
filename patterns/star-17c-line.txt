@@ -1,0 +1,43 @@
+# 17 clubs with every pass thrown LINE, right hand to your partner's left.
+#
+#   A, B, C:  3pX 3   ordinary single pass, self
+#   D, E:     5pX 3   long line pass, self
+#
+# Everyone passes from the right hand, on the same beats, every other beat. Every
+# self is a plain 3. Nobody crosses, nobody throws a heff.
+#
+# With all-line passing the club count follows a simple ladder: 15 clubs if
+# everybody throws the short pass, and one more club for each person who upgrades
+# to the long one. 15, 16, 17, 18, 19, 20. This is the rung with two upgraded.
+#
+# Everyone alternates hands in step here, and while that holds a line pass has to
+# fly an odd number of beats - hence the 5s. If two of you start on the other
+# hand instead, an ordinary 4 becomes a line pass and you get 17 clubs with
+# nothing above a double: that is star-17c-doubles-line.txt, and it is easier.
+# This file is the version where nobody has to think about hand phase.
+#
+# Passing is across the star:  A->C  B->D  C->E  D->A  E->B
+
+name: 17c star line
+beat: 0.30
+
+jugglers:
+  A at 0deg
+  B at 72deg
+  C at 144deg
+  D at 216deg
+  E at 288deg
+
+start:
+  A: R=2 L=2
+  B: R=2 L=2
+  C: R=2 L=1
+  D: R=2 L=1
+  E: R=2 L=1
+
+loop:
+  A: 3pC 3
+  B: 3pD 3
+  C: 3pE 3
+  D: 5pA 3
+  E: 5pB 3

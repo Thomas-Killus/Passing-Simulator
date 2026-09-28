@@ -1,0 +1,51 @@
+# The star at 7-club density: 5 jugglers, 17 clubs, two people holding 4.
+#
+# 7 clubs per 2 people is 3.5 each, and 3.5 x 5 = 17.5 - not a whole number of
+# clubs, so the exact density is impossible for 5 people. 17 is the closest that
+# exists (3.4 each). See star-18c.txt for the other side, 3.6 each.
+#
+# The pass is the SAME single pass you already throw in the 15-club star, right
+# hand to your target's left. All that changes is that two of the five selfs
+# become heffs (doubles), and the loop is 5 beats instead of 4:
+#
+#     pass, self, self, heff, heff
+#
+# Everyone throws that identical sequence. The only difference between people is
+# where they start it: A begins on beat 0, B one beat later, C two beats later,
+# and so on round the circle. That stagger is what makes it work - at 17 clubs
+# you CANNOT all pass on the same beat the way you do in the 15-club star. The
+# engine rejects every version where you try.
+#
+# The result is a wave: exactly one pass is in the air on every beat, travelling
+# round the pentagram A -> B -> C -> D -> E.
+#
+# Passing is still across the star, to the person two places round:
+#     A->C  B->D  C->E  D->A  E->B
+#
+# A and B start with 4 clubs, everyone else with 3.
+
+name: 17c star
+
+# a touch slower than the 15-club star - the heffs need the room
+beat: 0.33
+
+jugglers:
+  A at 0deg
+  B at 72deg
+  C at 144deg
+  D at 216deg
+  E at 288deg
+
+start:
+  A: R=2 L=2
+  B: R=2 L=2
+  C: R=2 L=1
+  D: R=2 L=1
+  E: R=2 L=1
+
+loop:
+  A: 3pC 3   3   4   4
+  B: 4   3pD 3   3   4
+  C: 4   4   3pE 3   3
+  D: 3   4   4   3pA 3
+  E: 3   3   4   4   3pB

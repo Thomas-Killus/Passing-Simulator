@@ -1,0 +1,37 @@
+# The star with twice the passing, and NO extra clubs.
+#
+# Same 15 clubs and the same single pass as star-15c.txt, but 2-count instead of
+# 4-count: everybody passes from the right hand on every other beat, and all five
+# passes go at once.
+#
+#     pass, self, pass, self, ...
+#
+# If the complaint about the star is that the passing feels slow, this is the fix
+# and it costs nothing - same clubs, same throws, same three clubs each. Just
+# pass every second beat instead of every fourth.
+#
+# Passing is across the star as always:  A->C  B->D  C->E  D->A  E->B
+
+name: 15c star 2-count
+beat: 0.35
+
+jugglers:
+  A at 0deg
+  B at 72deg
+  C at 144deg
+  D at 216deg
+  E at 288deg
+
+start:
+  A: R=2 L=1
+  B: R=2 L=1
+  C: R=2 L=1
+  D: R=2 L=1
+  E: R=2 L=1
+
+loop:
+  A: 3pC 3
+  B: 3pD 3
+  C: 3pE 3
+  D: 3pA 3
+  E: 3pB 3

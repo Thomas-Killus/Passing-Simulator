@@ -1,0 +1,30 @@
+# 7 clubs, 2 people, 2-count with double passes thrown CROSS - right hand to the
+# partner's RIGHT hand. See 7c-2count.txt for the line version, which is what
+# most people actually throw.
+#
+# Both jugglers alternate hands in step here: when A throws right, so does B.
+# With hands in step a 4 lands in the partner's right. Give B `start_hand L` and
+# the very same 4 lands in their left instead - that one word is the whole
+# difference between this file and the line one.
+#
+# A side effect of passing cross here: A ends up passing from the LEFT hand. In
+# the line version both of them pass from the right, which is easier to call.
+#
+# B holds 4 and opens with the double pass. A holds 3 and opens with a self,
+# throwing the double one beat later. From then on each of them passes every
+# other beat.
+
+name: 7c 2-count cross
+beat: 0.32
+
+jugglers:
+  A at (0, 1.75)
+  B at (0, -1.75)
+
+start:
+  A: R=2 L=1
+  B: R=2 L=2
+
+loop:
+  A: 3 4pB cross
+  B: 4pA cross 3

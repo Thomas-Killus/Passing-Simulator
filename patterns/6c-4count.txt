@@ -1,0 +1,18 @@
+# 6 clubs, 2 people, 4-count.
+# Every 4th throw is a single pass from the right hand; everything else is a self.
+# Passes are straight: right hand to the partner's left hand, 3 beats later.
+
+name: 6c 4-count
+beat: 0.35
+
+jugglers:
+  A at (0, 1.75)
+  B at (0, -1.75)
+
+start:
+  A: R=2 L=1
+  B: R=2 L=1
+
+loop:
+  A: 3pB 3 3 3
+  B: 3pA 3 3 3

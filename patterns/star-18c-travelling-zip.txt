@@ -1,0 +1,66 @@
+# 18 clubs, all five throwing line doubles from the right hand, and the ZIP
+# TRAVELS: it goes round the circle E -> A -> B -> C -> D -> E -> ... so nobody
+# is stuck with it.
+#
+# Everyone throws the same ten-beat sequence, just starting it at a different
+# point. Written as pass/self pairs, your five selfs are:
+#
+#     high self, ZIP, self, self, self
+#
+# and your neighbour starts that one pair later. The zip ripples round the star
+# one person per beat.
+#
+#
+# WHY THE HIGH SELF IS THERE
+#
+# A zip is a 1 and a plain self is a 3, so dropping a self to a zip takes a club
+# out of your hands two beats early and leaves a hole where it should have
+# landed. The 5 immediately before it plugs that hole: a 5 and a 1 together carry
+# exactly what two 3s carry. That is why the zip costs you a high self and not a
+# club - this pattern holds 18, the same as the all-3s version.
+#
+# The 5 is a triple-height self, peaking about 3.4 m at this tempo. It is the
+# real price of a travelling zip, and it is worth knowing before you start.
+#
+#
+# WHY THIS IS 18 AND NOT 17
+#
+# See star-17c-all-doubles.txt for the 17-club version. There the zip does NOT
+# travel - E zips on every single one of their self beats, permanently.
+#
+# That is forced, not a choice. Over ten beats a juggler's five selfs can only
+# ever total 5, 15 or 25; nothing else is throwable. Fifteen is the ordinary
+# case (five 3s, or any mix like 5-1-3-3-3 here). Getting to 17 clubs needs one
+# juggler down at a total of 5 - and the only five selfs that add to 5 are five
+# zips. So at 17 clubs somebody zips every time, and the job cannot move. Making
+# the period longer does not help; the same arithmetic comes back.
+#
+# So: 17 clubs with one permanent zipper, or 18 clubs with the zip going round.
+#
+# Passing is across the star:  A->C  B->D  C->E  D->A  E->B
+# E still stands half a beat off the others, which is what lets all five of you
+# throw doubles; C's and E's passes are the 4.5s.
+
+name: 18c star travelling zip
+beat: 0.30
+
+jugglers:
+  A at 0deg
+  B at 72deg
+  C at 144deg start_hand L
+  D at 216deg start_hand L
+  E at 288deg phase 0.5
+
+start:
+  A: R=2 L=2
+  B: R=2 L=2
+  C: R=1 L=2
+  D: R=1 L=2
+  E: R=2 L=2
+
+loop:
+  A: 4pC line 5   4pC line 1   4pC line 3   4pC line 3   4pC line 3
+  B: 4pD line 3   4pD line 5   4pD line 1   4pD line 3   4pD line 3
+  C: 3   4.5pE line   3   4.5pE line   5   4.5pE line   1   4.5pE line   3   4.5pE line
+  D: 3   4pA line     3   4pA line     3   4pA line     5   4pA line     1   4pA line
+  E: 4.5pB line 1 4.5pB line 3 4.5pB line 3 4.5pB line 3 4.5pB line 5

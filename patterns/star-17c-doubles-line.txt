@@ -1,0 +1,54 @@
+# 17 clubs, five people, every pass a double thrown LINE from the right hand,
+# and every self a plain 3. No heffs, no holds, no zips, nothing above a double.
+#
+#   A: double pass, self      opens with the pass      4 clubs   2R 2L
+#   B: double pass, self      opens with the pass      3 clubs   2R 1L
+#   C: self, double pass      opens with the self      3 clubs   1R 2L
+#   D: self, double pass      opens with the self      3 clubs   1R 2L
+#   E: SINGLE pass, self      opens with the pass      4 clubs   2R 2L
+#
+# C and D start on their LEFT hand - that is the `start_hand L` on their lines.
+# It is the same trick as B in 7c-2count.txt, and it is what turns every pass in
+# this pattern from a cross into a line. Everyone still passes from the right
+# hand; A, B and E pass on the even beats and C and D on the odd ones.
+#
+# This file and star-17c-doubles.txt have the SAME loops. The only differences
+# are those two `start_hand L` marks and the R/L split of the starting clubs.
+# That is all it takes to swap the whole pattern from cross passing to line.
+#
+# WHY E STILL THROWS A SINGLE
+#
+# A double flips which hand your partner passes from; a single does not. Follow
+# the passing chain A -> C -> E -> B -> D -> A: it closes after five people, so
+# the flips have to cancel, so the number of doubles has to be even. Five is odd.
+# Four doubles and one single is the most you can have, and it lands exactly on
+# 17 clubs. Being able to throw line does not rescue this - it was re-checked
+# with every hand-phase combination and the answer is the same.
+#
+# The single-pass job can go to any of the five; give it to whoever wants it.
+#
+# Passing is across the star:  A->C  B->D  C->E  D->A  E->B
+
+name: 17c star doubles line
+beat: 0.33
+
+jugglers:
+  A at 0deg
+  B at 72deg
+  C at 144deg start_hand L
+  D at 216deg start_hand L
+  E at 288deg
+
+start:
+  A: R=2 L=2
+  B: R=2 L=1
+  C: R=1 L=2
+  D: R=1 L=2
+  E: R=2 L=2
+
+loop:
+  A: 4pC line 3
+  B: 4pD line 3
+  C: 3   4pE line
+  D: 3   4pA line
+  E: 3pB line 3

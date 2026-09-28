@@ -1,0 +1,36 @@
+# The uniform heavy star: 20 clubs, four each, everybody identical.
+#
+# This is 8 clubs per 2 people. Every throw is a double - double pass from the
+# right, heff from the left, on repeat:
+#
+#     double pass, heff, double pass, heff, ...
+#
+# It is the next uniform 2-count above the 15-club one, because five identical
+# jugglers can only total a multiple of 5. Hard, but nothing in it is irregular:
+# one job, everyone does it, all five passes leave together on every even beat.
+#
+# Passing:  A->C  B->D  C->E  D->A  E->B
+
+name: 20c star 2-count
+beat: 0.33
+
+jugglers:
+  A at 0deg
+  B at 72deg
+  C at 144deg
+  D at 216deg
+  E at 288deg
+
+start:
+  A: R=2 L=2
+  B: R=2 L=2
+  C: R=2 L=2
+  D: R=2 L=2
+  E: R=2 L=2
+
+loop:
+  A: 4pC 4
+  B: 4pD 4
+  C: 4pE 4
+  D: 4pA 4
+  E: 4pB 4

@@ -1,0 +1,39 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Passing Simulator</title>
+<link rel="stylesheet" href="style.css">
+<script type="importmap">
+{ "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+} }
+</script>
+
+<header>
+  <h1 id="title">loading…</h1>
+  <div id="report"></div>
+</header>
+
+<main>
+  <div id="scene"></div>
+  <div id="panel">
+    <canvas id="timeline"></canvas>
+  </div>
+</main>
+
+<footer>
+  <button id="back"  title="step back one beat">⏮</button>
+  <button id="play"  title="play / pause">▶</button>
+  <button id="fwd"   title="step forward one beat">⏭</button>
+  <label>speed <input id="speed" type="range" min="0.05" max="1.5" step="0.05" value="0.5"></label>
+  <span id="speedout">0.50×</span>
+  <span class="spacer"></span>
+  <label><input id="showcausal" type="checkbox" checked> causal arrows</label>
+  <label><input id="trails" type="checkbox"> trails</label>
+  <span class="spacer"></span>
+  <span class="legend"><i class="line"></i>line pass <i class="cross"></i>cross pass</span>
+  <span class="spacer"></span>
+  <span id="clock">beat 0.00</span>
+</footer>
+
+<script type="module" src="viewer.js"></script>

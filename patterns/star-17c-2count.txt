@@ -1,0 +1,46 @@
+# 17 clubs AND 2-count: everybody passes from the right hand on every other beat.
+#
+# The catch is that you cannot all throw the same thing. With five people doing
+# an identical 2-beat loop the club count is forced to a multiple of 5 - 15 or 20,
+# never 17 (see the note at the bottom). So the five of you take three different
+# jobs:
+#
+#     A     single pass, self          3 clubs
+#     B, C  DOUBLE pass, self          3 clubs
+#     D, E  single pass, HEFF          4 clubs
+#
+# Everyone still passes from the right hand, on the same beats, across the star.
+# B and C throw the heavy pass; D and E throw the heavy self. A is the light one.
+#
+# Passing:  A->C  B->D  C->E  D->A  E->B
+#
+# Why not all the same? Club count = 5 x your average throw height. A 2-beat loop
+# has an average that is a whole or half number, so five identical jugglers can
+# only ever total a multiple of 5. Getting 17 out of five identical people needs a
+# loop 5 beats long - which is star-17c.txt, and a 5-beat loop makes your passes
+# alternate hands. So: 17 clubs, right-hand-only passing, everyone identical -
+# pick two of the three.
+
+name: 17c star 2-count
+beat: 0.33
+
+jugglers:
+  A at 0deg
+  B at 72deg
+  C at 144deg
+  D at 216deg
+  E at 288deg
+
+start:
+  A: R=2 L=1
+  B: R=2 L=1
+  C: R=2 L=1
+  D: R=2 L=2
+  E: R=2 L=2
+
+loop:
+  A: 3pC 3
+  B: 4pD 3
+  C: 4pE 3
+  D: 3pA 4
+  E: 3pB 4

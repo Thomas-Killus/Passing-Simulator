@@ -1,0 +1,55 @@
+# Every pass thrown LINE - right hand to your partner's left - and nobody
+# crossing. 19 clubs. A, B, C and D throw the long pass; E throws the short one.
+#
+#   A, B, C, D:  5pX 3    long line pass, self       A,C,D hold 4, B holds 3
+#   E:           3pB 3    ordinary single, self      holds 4
+#
+# Everyone passes from the right hand on the same beats. There is no pass-first /
+# self-first split here at all: once every pass is line, all five of you fall onto
+# the same beat, which is what makes this so much simpler to call than the
+# crossing version.
+#
+# THIS IS THE HARD WAY TO PASS LINE - see star-17c-doubles-line.txt
+#
+# Everyone here alternates hands in step with everyone else. While that holds, a
+# pass landing in the partner's LEFT hand has to be in the air an odd number of
+# beats, so a line pass carrying extra clubs has to be a 5 - high and floaty,
+# peaking about 3.4 m up at this tempo.
+#
+# You do not have to accept that. If some jugglers start on the other hand, so
+# their hands are offset by one beat from yours, an ordinary 4 lands in their
+# left hand and is a perfectly normal line double. star-17c-doubles-line.txt does
+# exactly that and gets 17 clubs with nothing above a double.
+#
+# What this file is still good for: 19 clubs. No line pattern built out of
+# doubles reaches that, because the number of doubles round the star has to be
+# even and so caps at four. If you want 19, these are the throws.
+#
+# Because everyone shares a hand phase here, all five pass from the right hand on
+# the same beat and there is no pass-first / self-first split to call.
+#
+# Passing is across the star:  A->C  B->D  C->E  D->A  E->B
+
+name: 19c star line
+beat: 0.30
+
+jugglers:
+  A at 0deg
+  B at 72deg
+  C at 144deg
+  D at 216deg
+  E at 288deg
+
+start:
+  A: R=2 L=2
+  B: R=2 L=1
+  C: R=2 L=2
+  D: R=2 L=2
+  E: R=2 L=2
+
+loop:
+  A: 5pC 3
+  B: 5pD 3
+  C: 5pE 3
+  D: 5pA 3
+  E: 3pB 3

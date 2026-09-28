@@ -1,0 +1,39 @@
+# 7 clubs, 2 people, 2-count with double passes thrown LINE - right hand to your
+# partner's LEFT hand. This is how most people throw it.
+#
+# A holds 4 clubs, 2 in each hand, and opens with the double pass from the right.
+# B holds 3, two left and one right, and opens with a SELF from the left hand,
+# then throws their double pass from the right one beat later. After that each of
+# them passes every other beat, always from the right hand, always line.
+#
+# WHAT MAKES IT LINE
+#
+# B's hands are offset one beat from A's: when A throws right, B throws left.
+# That is the `start_hand L` on B's line below, and it is the whole trick. Which
+# hand catches a pass is fixed by how long the club is in the air AND by whether
+# the two of you alternate hands in step:
+#
+#     hands in step        4 -> partner's right (cross),  3 -> their left (line)
+#     hands offset by one  4 -> partner's LEFT  (line),   3 -> their right (cross)
+#
+# Spin has nothing to do with it - you can put two spins on any of these. It only
+# changes how the club looks in the air, not where it lands.
+#
+# The `line` marks on the passes below are checked, not obeyed. The engine works
+# out where each club really lands and complains if the file disagrees, so you
+# cannot quietly write down something unthrowable.
+
+name: 7c 2-count
+beat: 0.32
+
+jugglers:
+  A at (0, 1.75)
+  B at (0, -1.75) start_hand L
+
+start:
+  A: R=2 L=2
+  B: R=1 L=2
+
+loop:
+  A: 4pB line 3
+  B: 3 4pA line
