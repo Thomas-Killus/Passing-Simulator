@@ -28,7 +28,7 @@
     "summary": "passes 3.5, 48/96 line"
   },
   {
-    "id": "star-15c-2count",
+    "id": "star-15c-original",
     "name": "15c star 2-count",
     "clubs": 15,
     "jugglers": 5,
@@ -49,20 +49,6 @@
     "summary": "passes 3/4, 72/120 line"
   },
   {
-    "id": "star-17c-all-doubles",
-    "name": "17c star all doubles",
-    "clubs": 17,
-    "jugglers": 5,
-    "summary": "passes 4/4.5, all line"
-  },
-  {
-    "id": "star-17c-doubles-line",
-    "name": "17c star doubles line",
-    "clubs": 17,
-    "jugglers": 5,
-    "summary": "passes 3/4, all line"
-  },
-  {
     "id": "star-17c-doubles",
     "name": "17c star doubles",
     "clubs": 17,
@@ -75,6 +61,20 @@
     "clubs": 17,
     "jugglers": 5,
     "summary": "passes 3/5, all line"
+  },
+  {
+    "id": "star-17c-one-single",
+    "name": "17c star doubles line",
+    "clubs": 17,
+    "jugglers": 5,
+    "summary": "passes 3/4, all line"
+  },
+  {
+    "id": "star-17c-one-zip",
+    "name": "17c star all doubles",
+    "clubs": 17,
+    "jugglers": 5,
+    "summary": "passes 4/4.5, all line"
   },
   {
     "id": "star-17c",
