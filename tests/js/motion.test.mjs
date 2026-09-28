@@ -68,3 +68,37 @@ for (const [name, doc] of Object.entries(docs)) {
     }
   });
 }
+
+import { clubSpin, bulbDirection } from '../../viewer/motion.js';
+
+// A club tumbles handle-first: the handle leads over the top and drops down into
+// the catching hand. So the head (bulb) tips AGAINST the direction of travel —
+// backspin, not topspin. Topspin would sweep the handle backwards out of the
+// catcher's hand at the moment of the catch.
+const FLIGHT = { from: [0, 2, 1.1], to: [0, -2, 1.1], spin: 2 };   // travelling -y
+
+test('the club head tips against the direction of travel just after release', () => {
+  const bulb = bulbDirection(FLIGHT, 0.05);
+  const travel = [0, -1];
+  const along = bulb[0] * travel[0] + bulb[1] * travel[1];
+  assert.ok(along < -0.05,
+    `bulb leans ${along.toFixed(3)} along travel; expected it to lean backwards`);
+});
+
+test('the club head still tips backwards on a throw going the other way', () => {
+  const back = { from: [0, -2, 1.1], to: [0, 2, 1.1], spin: 2 };
+  const bulb = bulbDirection(back, 0.05);
+  assert.ok(bulb[1] < -0.05, `bulb y=${bulb[1].toFixed(3)}, expected negative`);
+});
+
+test('a whole number of spins brings the club back upright', () => {
+  const bulb = bulbDirection(FLIGHT, 1);            // spin: 2, so two full turns
+  assert.ok(Math.abs(bulb[2] - 1) < 1e-9, `bulb z=${bulb[2]}`);
+});
+
+test('the spin axis lies flat and across the flight', () => {
+  const { axis } = clubSpin(FLIGHT, 0.5);
+  assert.equal(axis[2], 0);
+  assert.ok(Math.abs(Math.hypot(axis[0], axis[1]) - 1) < 1e-9);
+  assert.equal(axis[0] * 0 + axis[1] * -1, 0);      // perpendicular to travel
+});

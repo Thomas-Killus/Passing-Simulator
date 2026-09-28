@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
-import { clubState, handPosition } from './motion.js';
+import { clubSpin, clubState, handPosition } from './motion.js';
 import { Timeline } from './timeline.js';
 
 const doc = await (await fetch('pattern.json')).json();
@@ -197,11 +197,9 @@ function orientClub(mesh, state) {
     mesh.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), UP);
     return;
   }
-  const dx = f.to[0] - f.from[0];
-  const dy = f.to[1] - f.from[1];
-  const len = Math.hypot(dx, dy) || 1;
-  axis.set(-dy / len, dx / len, 0);           // horizontal, across the flight
-  const angle = state.progress * Math.PI * 2 * f.spin;
+  const spin = clubSpin(f, state.progress);
+  axis.set(spin.axis[0], spin.axis[1], spin.axis[2]);
+  const angle = spin.angle;
   const up = new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0), UP);
   mesh.quaternion.setFromAxisAngle(axis, angle).multiply(up);
 }

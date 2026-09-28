@@ -80,3 +80,28 @@ export function clubState(club, t, g, jugglers) {
     inHand: false,
   };
 }
+
+// --- club tumbling ------------------------------------------------------
+// A club tumbles handle-first: the handle leads over the top and drops into the
+// catching hand, so the spin runs AGAINST the direction of travel. Spun the
+// other way the handle would be sweeping backwards, away from the catcher, at
+// the moment they close their hand on it.
+
+export function clubSpin(flight, progress) {
+  const dx = flight.to[0] - flight.from[0];
+  const dy = flight.to[1] - flight.from[1];
+  const len = Math.hypot(dx, dy) || 1;
+  return {
+    axis: [-dy / len, dx / len, 0],                     // flat, across the flight
+    angle: -progress * Math.PI * 2 * flight.spin,       // negative = handle first
+  };
+}
+
+// Unit vector the club head points along, for a club that rests bulb-up.
+export function bulbDirection(flight, progress) {
+  const { axis, angle } = clubSpin(flight, progress);
+  // Rodrigues, simplified: the axis is horizontal and the club starts at +z,
+  // so the axis-dot-vector term drops out.
+  const s = Math.sin(angle);
+  return [axis[1] * s, -axis[0] * s, Math.cos(angle)];
+}
