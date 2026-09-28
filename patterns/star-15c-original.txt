@@ -12,7 +12,7 @@
 #
 # Passing is across the star as always:  A->C  B->D  C->E  D->A  E->B
 
-name: 15c star 2-count
+name: 15c star original
 beat: 0.35
 
 jugglers:

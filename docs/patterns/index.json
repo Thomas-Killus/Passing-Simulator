@@ -21,15 +21,8 @@
     "summary": "passes 4, all line"
   },
   {
-    "id": "7c-async",
-    "name": "7c async",
-    "clubs": 7,
-    "jugglers": 2,
-    "summary": "passes 3.5, 48/96 line"
-  },
-  {
     "id": "star-15c-original",
-    "name": "15c star 2-count",
+    "name": "15c star original",
     "clubs": 15,
     "jugglers": 5,
     "summary": "passes 3, all line"
@@ -49,29 +42,15 @@
     "summary": "passes 3/4, 72/120 line"
   },
   {
-    "id": "star-17c-doubles",
-    "name": "17c star doubles",
-    "clubs": 17,
-    "jugglers": 5,
-    "summary": "passes 3/4, 24/120 line"
-  },
-  {
-    "id": "star-17c-line",
-    "name": "17c star line",
-    "clubs": 17,
-    "jugglers": 5,
-    "summary": "passes 3/5, all line"
-  },
-  {
     "id": "star-17c-one-single",
-    "name": "17c star doubles line",
+    "name": "17c star one single David",
     "clubs": 17,
     "jugglers": 5,
     "summary": "passes 3/4, all line"
   },
   {
     "id": "star-17c-one-zip",
-    "name": "17c star all doubles",
+    "name": "17c star one zip David",
     "clubs": 17,
     "jugglers": 5,
     "summary": "passes 4/4.5, all line"
@@ -85,7 +64,7 @@
   },
   {
     "id": "star-18c-travelling-zip",
-    "name": "18c star travelling zip",
+    "name": "18c star travelling zip David",
     "clubs": 18,
     "jugglers": 5,
     "summary": "passes 4/4.5, all line"
@@ -103,12 +82,5 @@
     "clubs": 19,
     "jugglers": 5,
     "summary": "passes 3/5, all line"
-  },
-  {
-    "id": "star-20c-2count",
-    "name": "20c star 2-count",
-    "clubs": 20,
-    "jugglers": 5,
-    "summary": "passes 4, all cross"
   }
 ]

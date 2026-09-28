@@ -115,20 +115,16 @@ forces, two beats before it lands.
 |---|---|
 | `6c-4count.txt` | 6 clubs, 2 people, single pass every 4th beat |
 | `7c-2count.txt` | 7 clubs, 2 people, double passes thrown line, clubs split 4/3 |
-| `7c-async.txt` | 7 clubs, 2 people, half-beat offset, every throw a 3.5 pass |
-| `star-15c.txt` | the 5-person star, 15 clubs, 4-count |
-| `star-17c.txt` | the star at 7-club density, 17 clubs, two people holding 4 |
-| `star-18c.txt` | the star one club denser, 18 clubs, three people holding 4 |
-| `star-15c-2count.txt` | the star passing twice as often, same 15 clubs |
-| `star-17c-2count.txt` | 17 clubs and 2-count, every pass from the right, three different jobs |
-| `star-17c-doubles.txt` | 17 clubs, everyone 2-counting double passes, every self a plain 3 |
 | `7c-2count-cross.txt` | the same 7 clubs with the passes thrown cross |
-| `star-17c-doubles-line.txt` | 17 clubs, four line doubles and one single, all from the right |
-| `star-17c-all-doubles.txt` | 17 clubs, **all five** throwing line doubles, one juggler off the beat |
-| `star-18c-travelling-zip.txt` | 18 clubs, all five on line doubles, the zip going round the circle |
-| `star-17c-line.txt` | 17 clubs, line passes without anyone changing hand phase |
+| `star-15c.txt` | the 5-person star, 15 clubs, 4-count |
+| `star-15c-original.txt` | the star passing twice as often, same 15 clubs |
+| `star-17c.txt` | the star at 7-club density, 17 clubs, two people holding 4 |
+| `star-17c-2count.txt` | 17 clubs and 2-count, every pass from the right, three different jobs |
+| `star-17c-one-single.txt` | **17 clubs, four line doubles and one single, all from the right** |
+| `star-17c-one-zip.txt` | **17 clubs, all five on line doubles, one juggler off the beat, one zip** |
+| `star-18c.txt` | the star one club denser, 18 clubs, three people holding 4 |
+| `star-18c-travelling-zip.txt` | **18 clubs, all five on line doubles, the zip going round the circle** |
 | `star-19c-line.txt` | 19 clubs, every pass line, four people on the long pass |
-| `star-20c-2count.txt` | uniform heavy 2-count, 20 clubs, four each |
 
 ### Why the dense star is 17 or 18, never 17.5
 
@@ -154,8 +150,8 @@ So a double pass is a line pass or a cross pass depending on the partner's hand
 phase, not on the number. Giving one juggler `start_hand L` flips every pass
 between them without touching a single height — compare `7c-2count.txt` with
 `7c-2count-cross.txt`, which differ by exactly that one word, or
-`star-17c-doubles-line.txt` with `star-17c-doubles.txt`, which have identical
-loops.
+`star-17c-one-single.txt`, where two jugglers' `start_hand L` turns every pass
+in the pattern from a cross into a line without touching a single height.
 
 **Spin is separate from all of this.** You can put two spins on any of these
 heights; it changes how the club looks in the air and nothing about where it
@@ -200,7 +196,7 @@ passes are halves, and why in 4-handed siteswap every odd number is a pass:
 
 Global is prechac doubled. Same theory, different clock — and this engine speaks
 the other dialect too: give a juggler `phase 0.5` and use fractional heights.
-`patterns/7c-async.txt` is exactly that, `3.5p` throughout.
+`star-17c-one-zip.txt` does exactly that.
 
 ### Why one person in the star has to throw a single
 
@@ -217,7 +213,7 @@ A -> C -> E -> B -> D -> A
 Five doubles would flip the hand five times and leave A passing from the hand
 opposite the one it started on — a contradiction. The number of doubles has to be
 even, and five is odd. Four doubles and one single is the most you can have, and
-it comes out at exactly 17 clubs. `star-17c-doubles.txt` is that pattern; the
+it comes out at exactly 17 clubs. `star-17c-one-single.txt` is that pattern; the
 test suite checks that no arrangement of five doubles works.
 
 Note the chain is the **pentagram**, not the seating order. Alternating roles
@@ -231,7 +227,7 @@ juggler **half a beat off** and it lifts: the two passes touching them stretch f
 a 4 to a **4.5** to reach a hand that now arrives half a beat later. That is the
 ordinary double pass of asynchronous passing — prechac writes it 4.5 for exactly
 this reason — and it peaks about 40 cm higher than a 4, floatier but the same
-throw. `star-17c-all-doubles.txt` is that pattern: five doubles, three 4s and two
+throw. `star-17c-one-zip.txt` is that pattern: five doubles, three 4s and two
 4.5s, every one line and from the right hand.
 
 Five doubles carry 18 clubs with plain 3s for selfs. Swapping one self for a
@@ -257,7 +253,7 @@ That decides everything about the zip:
   rotating position and the zip ripples round the circle. The cost is the 5: a
   triple-height self, about 3.4 m, thrown to buy the time the zip gives back.
 
-`star-17c-all-doubles.txt` is the first; `star-18c-travelling-zip.txt` the second.
+`star-17c-one-zip.txt` is the first; `star-18c-travelling-zip.txt` the second.
 
 ### Why five identical jugglers can only hold a multiple of five clubs
 
@@ -272,7 +268,7 @@ three you can have any two, never all three:
 
 `star-17c.txt` drops the second (5-beat loop, passes alternate hands),
 `star-17c-2count.txt` drops the third (three different jobs), and
-`star-15c-2count.txt` / `star-20c-2count.txt` drop the first.
+and `star-15c-original.txt` drops the first.
 
 Both 5-beat stars also need the loop **staggered** round the circle: each person starts the
 same sequence one beat after the last. Everyone passing on the same beat, the way
@@ -286,7 +282,7 @@ Every pattern has its own link. Take the id from the dropdown and put it after
 `?p=`:
 
 ```
-https://thomas-killus.github.io/Passing-Simulator/?p=star-17c-all-doubles
+https://thomas-killus.github.io/Passing-Simulator/?p=star-17c-one-zip
 ```
 
 Send that to whoever you are passing with — they need nothing installed.

@@ -13,7 +13,7 @@
 # THE TRICK: E IS HALF A BEAT OFF THE BEAT
 #
 # With everyone on one beat grid, five double passes round a five-person star is
-# impossible - the count of doubles has to be even (see star-17c-doubles-line.txt
+# impossible - the count of doubles has to be even (see star-17c-one-single.txt
 # for why), so somebody always has to throw a single. Zips do not rescue that: a
 # zip is a 1, odd like a 3, so swapping selfs for zips changes the club count but
 # not the parity.
@@ -39,7 +39,7 @@
 # E's zip is a handy moment: it is the one beat where a hand is free, which helps
 # when you are half a beat out of step with everybody else.
 
-name: 17c star all doubles
+name: 17c star one zip David
 beat: 0.30
 
 jugglers:

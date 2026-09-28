@@ -12,9 +12,9 @@
 # this pattern from a cross into a line. Everyone still passes from the right
 # hand; A, B and E pass on the even beats and C and D on the odd ones.
 #
-# This file and star-17c-doubles.txt have the SAME loops. The only differences
-# are those two `start_hand L` marks and the R/L split of the starting clubs.
-# That is all it takes to swap the whole pattern from cross passing to line.
+# Those two `start_hand L` marks, plus the R/L split of the starting clubs, are
+# the only thing separating this from the cross-passing version of the same
+# loops. That is all it takes to swap a whole pattern from cross to line.
 #
 # WHY E STILL THROWS A SINGLE
 #
@@ -29,7 +29,7 @@
 #
 # Passing is across the star:  A->C  B->D  C->E  D->A  E->B
 
-name: 17c star doubles line
+name: 17c star one single David
 beat: 0.33
 
 jugglers:

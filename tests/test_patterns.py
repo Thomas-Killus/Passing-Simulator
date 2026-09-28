@@ -39,10 +39,12 @@ def test_the_cross_seven_club_opens_with_b_throwing_the_double():
     assert a_second.throw.height == 4 and a_second.throw.is_pass
 
 
-def test_async_pattern_needs_fractional_heights():
-    p = parse((Path("patterns/7c-async.txt")).read_text())
-    assert p.jugglers["B"].phase == 0.5
-    assert all(t.height % 1 == 0.5 for t in p.jugglers["A"].loop)
+def test_a_juggler_off_the_beat_forces_fractional_pass_heights():
+    p = parse((Path("patterns/star-17c-one-zip.txt")).read_text())
+    assert p.jugglers["E"].phase == 0.5
+    halves = [t for j in p.jugglers.values() for t in j.loop
+              if t.is_pass and t.height % 1 == 0.5]
+    assert len(halves) == 2          # E's pass, and the pass into E
 
 
 def test_dense_stars_have_the_club_counts_their_comments_claim():
@@ -82,7 +84,7 @@ def test_a_dense_star_cannot_have_everyone_passing_on_the_same_beat():
 
 
 def test_two_count_stars_pass_from_the_right_hand_on_every_even_beat():
-    for name in ("star-15c-2count", "star-17c-2count", "star-20c-2count"):
+    for name in ("star-15c-original", "star-17c-2count"):
         result = simulate(parse(Path(f"patterns/{name}.txt").read_text()), beats=24)
         passes = [e for e in result.events if e.throw.is_pass]
         assert {e.hand for e in passes} == {"R"}, name
@@ -114,7 +116,7 @@ def test_no_uniform_two_count_star_can_hold_seventeen_or_eighteen_clubs():
 
 
 def test_the_doubles_star_has_no_heffs_holds_or_zips():
-    p = parse(Path("patterns/star-17c-doubles.txt").read_text())
+    p = parse(Path("patterns/star-17c-one-single.txt").read_text())
     selfs = [t for j in p.jugglers.values() for t in j.loop if not t.is_pass]
     assert {t.height for t in selfs} == {3.0}
     passes = [t for j in p.jugglers.values() for t in j.loop if t.is_pass]
@@ -152,7 +154,7 @@ def test_an_odd_passing_chain_needs_an_even_number_of_double_passes():
 
 
 def test_the_line_stars_never_cross_a_pass():
-    for name in ("star-17c-line", "star-19c-line"):
+    for name in ("star-17c-one-single", "star-19c-line"):
         result = simulate(parse(Path(f"patterns/{name}.txt").read_text()), beats=40)
         passes = [e for e in result.events if e.throw.is_pass]
         assert passes
@@ -197,7 +199,7 @@ loop:
 
 def test_all_line_star_club_count_is_fifteen_plus_the_long_passes():
     counts = {}
-    for name in ("star-15c-2count", "star-17c-line", "star-19c-line"):
+    for name in ("star-15c-original", "star-19c-line"):
         p = parse(Path(f"patterns/{name}.txt").read_text())
         longs = sum(1 for j in p.jugglers.values()
                     for t in j.loop if t.is_pass and t.height == 5)
@@ -232,14 +234,13 @@ def test_the_cross_variant_differs_only_in_hand_phase():
     assert all(not e.is_line for e in crossed)
 
 
-def test_the_line_doubles_star_matches_the_cross_one_throw_for_throw():
-    line = parse(Path("patterns/star-17c-doubles-line.txt").read_text())
-    cross = parse(Path("patterns/star-17c-doubles.txt").read_text())
-    for jid, juggler in line.jugglers.items():
-        assert [(t.height, t.target) for t in juggler.loop] == \
-               [(t.height, t.target) for t in cross.jugglers[jid].loop], jid
+def test_the_one_single_star_is_all_line_from_the_right_hand():
+    line = parse(Path("patterns/star-17c-one-single.txt").read_text())
     assert line.club_count == 17
     assert {j.start_hand for j in line.jugglers.values()} == {"R", "L"}
+    singles = [t for j in line.jugglers.values() for t in j.loop
+               if t.is_pass and t.height == 3]
+    assert len(singles) == 1          # four doubles and the one single
 
     result = simulate(line, beats=24)
     assert result.errors == []
@@ -273,7 +274,7 @@ def test_even_doubles_rule_holds_however_the_hands_are_phased():
 
 
 def test_all_five_throw_a_double_in_the_all_doubles_star():
-    p = parse(Path("patterns/star-17c-all-doubles.txt").read_text())
+    p = parse(Path("patterns/star-17c-one-zip.txt").read_text())
     assert p.club_count == 17
     passes = [t for j in p.jugglers.values() for t in j.loop if t.is_pass]
     assert len(passes) == 5
@@ -288,7 +289,7 @@ def test_all_five_throw_a_double_in_the_all_doubles_star():
 
 
 def test_only_the_passes_touching_the_offset_juggler_are_four_and_a_half():
-    p = parse(Path("patterns/star-17c-all-doubles.txt").read_text())
+    p = parse(Path("patterns/star-17c-one-zip.txt").read_text())
     halves = {jid for jid, j in p.jugglers.items()
               for t in j.loop if t.is_pass and t.height == 4.5}
     # E throws one, and whoever passes to E throws the other

@@ -9,7 +9,7 @@
 # the same beat, which is what makes this so much simpler to call than the
 # crossing version.
 #
-# THIS IS THE HARD WAY TO PASS LINE - see star-17c-doubles-line.txt
+# THIS IS THE HARD WAY TO PASS LINE - see star-17c-one-single.txt
 #
 # Everyone here alternates hands in step with everyone else. While that holds, a
 # pass landing in the partner's LEFT hand has to be in the air an odd number of
@@ -18,7 +18,7 @@
 #
 # You do not have to accept that. If some jugglers start on the other hand, so
 # their hands are offset by one beat from yours, an ordinary 4 lands in their
-# left hand and is a perfectly normal line double. star-17c-doubles-line.txt does
+# left hand and is a perfectly normal line double. star-17c-one-single.txt does
 # exactly that and gets 17 clubs with nothing above a double.
 #
 # What this file is still good for: 19 clubs. No line pattern built out of

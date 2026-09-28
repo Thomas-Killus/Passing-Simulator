@@ -25,7 +25,7 @@
 #
 # WHY THIS IS 18 AND NOT 17
 #
-# See star-17c-all-doubles.txt for the 17-club version. There the zip does NOT
+# See star-17c-one-zip.txt for the 17-club version. There the zip does NOT
 # travel - E zips on every single one of their self beats, permanently.
 #
 # That is forced, not a choice. Over ten beats a juggler's five selfs can only
@@ -41,7 +41,7 @@
 # E still stands half a beat off the others, which is what lets all five of you
 # throw doubles; C's and E's passes are the 4.5s.
 
-name: 18c star travelling zip
+name: 18c star travelling zip David
 beat: 0.30
 
 jugglers:

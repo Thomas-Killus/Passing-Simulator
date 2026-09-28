@@ -7,7 +7,8 @@ import { clubState, handPosition } from '../../docs/motion.js';
 // the same files the site publishes; regenerate with `python3 -m sim --build`
 const docs = {
   '6c 4-count': JSON.parse(readFileSync('docs/patterns/6c-4count.json', 'utf8')),
-  '7c async': JSON.parse(readFileSync('docs/patterns/7c-async.json', 'utf8')),
+  '17c one zip': JSON.parse(
+    readFileSync('docs/patterns/star-17c-one-zip.json', 'utf8')),
 };
 
 const dist = (a, b) => Math.hypot(a[0] - b[0], a[1] - b[1], a[2] - b[2]);
